@@ -16,12 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Toggle mobile menu
+    // Toggle mobile menu with improved functionality
     if (navToggle) {
-        navToggle.addEventListener('click', () => {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
     }
+
+    // Close menu when clicking on a nav link
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && e.target !== navToggle) {
+            navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
 
     /* ===== ACCORDION ===== */
     const accordionItems = document.querySelectorAll('.accordion__item');
