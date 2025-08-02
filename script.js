@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validate email format
         const emailInput = document.getElementById('email');
-        if (emailInput.value && !/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+        if (emailInput.value && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailInput.value)) {
             showError('email', 'Por favor, insira um e-mail válido.');
             isValid = false;
         }
