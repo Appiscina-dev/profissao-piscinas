@@ -1,5 +1,4 @@
 /* ===== script.js ===== */
-
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ===== HEADER & MOBILE NAV ===== */
@@ -72,22 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleScrollAnimation = () => {
-        let delay = 0; // Reset delay on each scroll event
+        let delay = 0;
         scrollElements.forEach((el) => {
             if (elementInView(el, 1.25) && !el.classList.contains('is-visible')) {
-                // Apply a staggered delay for a smoother effect
                 setTimeout(() => {
                     displayScrollElement(el);
                 }, delay);
-                delay += 100; // Increase delay for the next visible element
+                delay += 100;
             }
         });
     };
     
     window.addEventListener('scroll', handleScrollAnimation);
-    // Trigger on load for elements already in view
     handleScrollAnimation();
-
 
     /* ===== FORM HANDLING ===== */
     const form = document.getElementById('workshopForm');
@@ -184,9 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (inputElement) {
             inputElement.classList.add('invalid');
-        } else { // For radio groups
-             const radioGroup = form.querySelector(`input[name="${fieldId}"]`).closest('.form__radio-group');
-             if(radioGroup) radioGroup.classList.add('invalid');
+        } else {
+            const radioGroup = form.querySelector(`input[name="${fieldId}"]`).closest('.form__radio-group');
+            if(radioGroup) radioGroup.classList.add('invalid');
         }
     }
 
@@ -194,33 +190,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const botToken = '7311747535:AAEzgJ7ynq_B785QBng8qLuiRiiDMlBoWCk';
         const chatId = '-1002597551822';
         
+        // Função para escapar caracteres especiais do MarkdownV2
+        const escapeMarkdown = (text) => {
+            const charsToEscape = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'];
+            let escapedText = text;
+            charsToEscape.forEach(char => {
+                escapedText = escapedText.replace(new RegExp(`\\${char}`, 'g'), `\\${char}`);
+            });
+            return escapedText;
+        };
+
+        // Apenas os campos que podem conter caracteres especiais são escapados
         const message = `
-🚨 *NOVA INSCRIÇÃO - PROFISSÃO PISCINA* 🚨
---------------------------------------------------
-*Evento:* ${data.evento}
+🚨 *NOVA INSCRIÇÃO \\- PROFISSÃO PISCINA* 🚨
+\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-
+*Evento:* ${escapeMarkdown(data.evento || 'N/A')}
 
-*Nome:* ${data.nome}
-*CPF/CNPJ:* ${data.cpf}
-*WhatsApp:* ${data.whatsapp}
-*E-mail:* ${data.email}
-*Cidade/UF:* ${data.cidade}
+*Nome:* ${escapeMarkdown(data.nome || 'N/A')}
+*CPF/CNPJ:* ${escapeMarkdown(data.cpf || 'N/A')}
+*WhatsApp:* ${escapeMarkdown(data.whatsapp || 'N/A')}
+*E\\-mail:* ${escapeMarkdown(data.email || 'N/A')}
+*Cidade/UF:* ${escapeMarkdown(data.cidade || 'N/A')}
 
-*Perfil:* ${data.finalidade}
-*Forma de Participação:* ${data.participacao}
+*Perfil:* ${escapeMarkdown(data.finalidade || 'N/A')}
+*Forma de Participação:* ${escapeMarkdown(data.participacao || 'N/A')}
 
-*Data da Inscrição:* ${data.dataCadastro}
+*Data da Inscrição:* ${escapeMarkdown(data.dataCadastro || 'N/A')}
         `;
 
-        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'Markdown' })
-        });
+        try {
+            const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    chat_id: chatId, 
+                    text: message, 
+                    parse_mode: 'MarkdownV2'
+                })
+            });
 
-        if (!response.ok) {
-            throw new Error(`Erro no Telegram: ${response.statusText}`);
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Erro detalhado do Telegram:', errorData);
+                throw new Error(`Erro no Telegram: ${errorData.description || response.statusText}`);
+            }
+            return response.json();
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            throw error;
         }
-        return response.json();
     }
 
     /* ===== INPUT MASKS ===== */
