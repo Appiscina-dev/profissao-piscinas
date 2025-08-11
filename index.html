@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissão Piscina - Edição Tratamento com Rafa Rlc</title>
+    <meta name="description" content="Eleve seu nível profissional. Participe da nova edição da série Profissão Piscina e aprenda as técnicas de tratamento de piscinas com o especialista Rafa Rlc.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Javascript (com defer para carregar após o HTML) -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="#" class="header__logo">
+                <img src="logo.png" alt="Logo Profissão Piscina">
+                <span>Profissão Piscina</span>
+            </a>
+
+            <nav class="nav" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#sobre" class="nav__link">O Evento</a></li>
+                    <li class="nav__item"><a href="#beneficios" class="nav__link">Benefícios</a></li>
+                    <li class="nav__item"><a href="#mentor" class="nav__link">Mentor</a></li>
+                    <li class="nav__item"><a href="#programacao" class="nav__link">Programação</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <a href="https://www.instagram.com/appiscina/" target="_blank" class="header__social-btn" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="#inscreva-se" class="btn btn--primary">Inscreva-se Já</a>
+                <div class="nav__toggle" id="nav-toggle" aria-label="Abrir menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== HERO & FORM ===== -->
+        <section class="hero" id="inscreva-se">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <span class="hero__subtitle">Série Profissão Piscina - Episódio 2</span>
+                    <h1 class="hero__title">Aprenda o dia a dia do tratamento de piscinas, sem segredos.</h1>
+                    <p class="hero__description">
+                        Descubra as técnicas e processos que os melhores profissionais usam para garantir uma água sempre cristalina e segura. Um evento prático com o especialista Rafa Rlc.
+                    </p>
+                    <div class="event-info">
+                        <div class="event-info__item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                            <span>23 de Agosto, 2025</span>
+                        </div>
+                        <div class="event-info__item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+                            <span>13:30h (Presencial & Online)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero__image-container animate-on-scroll" data-animation="fade-up">
+                        <img src="piscina.jpg" alt="Piscina limpa e cristalina" class="hero__image">
+                    </div>
+
+                </div>
+                
+                <div class="hero__form-wrapper animate-on-scroll" data-animation="fade-left">
+                    <form id="workshopForm" class="form" novalidate>
+                        <div class="form__header">
+                            <h2 class="section__title">Garanta sua Vaga</h2>
+                            <p class="section__subtitle">Preencha para confirmar sua pré-inscrição.</p>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="nome" class="form__label">Nome completo</label>
+                            <input type="text" id="nome" name="nome" class="form__input" placeholder="Seu nome" required>
+                            <div class="form__error-message" id="nome-error"></div>
+                        </div>
+                        
+                        <div class="form__group">
+                            <label for="cidade" class="form__label">Cidade/UF</label>
+                            <input type="text" id="cidade" name="cidade" class="form__input" placeholder="Ex: Londrina/PR" required>
+                            <div class="form__error-message" id="cidade-error"></div>
+                        </div>
+                        
+                        <div class="form__grid">
+                            <div class="form__group">
+                                <label for="whatsapp" class="form__label">WhatsApp</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" class="form__input" placeholder="(00) 00000-0000" required>
+                                <div class="form__error-message" id="whatsapp-error"></div>
+                            </div>
+                            <div class="form__group">
+                                <label for="email" class="form__label">E-mail</label>
+                                <input type="email" id="email" name="email" class="form__input" placeholder="seu.melhor@email.com" required>
+                                <div class="form__error-message" id="email-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__label">Qual seu perfil profissional?</label>
+                            <div class="form__radio-group">
+                                <label class="form__radio-option"><input type="radio" name="finalidade" value="Profissional em Piscinas" required><span>Sou Profissional</span></label>
+                                <label class="form__radio-option"><input type="radio" name="finalidade" value="Pretendo trabalhar com Piscinas"><span>Quero ser Profissional</span></label>
+                                <label class="form__radio-option"><input type="radio" name="finalidade" value="Tenho/Pretendo piscina"><span>Tenho Piscina</span></label>
+                                <label class="form__radio-option"><input type="radio" name="finalidade" value="Outro"><span>Outro</span></label>
+                            </div>
+                            <div class="form__error-message" id="finalidade-error"></div>
+                        </div>
+
+                        <div class="form__group">
+                             <label class="form__label">Como pretende participar?</label>
+                            <div class="form__radio-group form__radio-group--inline">
+                                <label class="form__radio-option"><input type="radio" name="participacao" value="Presencial em Londrina/PR" required><span>Presencial (Londrina/PR)</span></label>
+                                <label class="form__radio-option"><input type="radio" name="participacao" value="Online"><span>Online</span></label>
+                            </div>
+                            <div class="form__error-message" id="participacao-error"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn--secondary btn--full-width">Confirmar minha Inscrição</button>
+                    </form>
+                    
+                    <div id="form-feedback"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== LOGOS BAR ===== -->
+        <div class="logos-bar">
+            <div class="container logos-bar__container">
+                <span>Apoio:</span>
+                <div class="logo-item"><img src="connect.png" alt="Logo Connect" title="Connect"></div>
+                <div class="logo-item"><img src="panazon.png" alt="panazon" title="panazon"></div>
+                <div class="logo-item"><img src="logo-hidroazul.png" alt="hidroazul" title="hidroazul"></div>
+                <div class="logo-item"><img src="limpiscinas.png" alt="limpiscinas" title="limpiscinas"></div>
+                <div class="logo-item"><img src="lepono.png" alt="lepono" title="lepono"></div>
+                <div class="logo-item"><img src="ts.png" alt="tssolar" title="tssolar"></div>
+                <div class="logo-item"><img src="hidro.png" alt="hidro" title="hidro"></div>
+				<div class="logo-item"><img src="brustec.png" alt="brustec" title="brustec"></div>
+            </div>
+        </div>
+
+        <!-- ===== SOBRE O EVENTO ===== -->
+        <section class="section" id="sobre">
+            <div class="container section__container">
+                <div class="section__header animate-on-scroll">
+                    <h2 class="section__title">Sua piscina virou um problema?</h2>
+                    <p class="section__subtitle">Se você se identifica com estas situações, este evento é para você.</p>
+                </div>
+                <div class="features__grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-card__icon">
+                            <img src="agua.png" alt="Água verde" width="32" height="32">
+                        </div>
+                        <h3 class="feature-card__title">Água Verde e Turva</h3>
+                        <p class="feature-card__text">Luta constante contra algas e falta de cristalinidade, gastando produtos sem ver resultado definitivo.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-card__icon">
+                            <img src="produto.png" alt="Produtos" width="32" height="32">
+                        </div>
+                        <h3 class="feature-card__title">Confusão de Produtos</h3>
+                        <p class="feature-card__text">Insegurança sobre qual químico usar, a dosagem correta e a ordem de aplicação para cada problema.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-card__icon">
+                            <img src="tempo.png" alt="Tempo" width="32" height="32">
+                        </div>
+                        <h3 class="feature-card__title">Tempo e Dinheiro Perdidos</h3>
+                        <p class="feature-card__text">Refazendo o trabalho e gastando mais do que o necessário por falta de uma metodologia eficiente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== BENEFÍCIOS ===== -->
+        <section class="section section--bg" id="beneficios">
+            <div class="container section__container">
+                <div class="section__header animate-on-scroll">
+                    <h2 class="section__title">Mais que um Curso, uma Oportunidade</h2>
+                    <p class="section__subtitle">Ao participar, você investe no seu crescimento profissional e abre novas portas.</p>
+                </div>
+                <div class="features__grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="feature-card__title">Networking Regional</h3>
+                        <p class="feature-card__text">Conecte-se com outros profissionais de Londrina e região, troque experiências e crie parcerias valiosas.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        </div>
+                        <h3 class="feature-card__title">Certificado e Brindes</h3>
+                        <p class="feature-card__text">Comprove sua capacitação com um certificado de participação e destaque-se no mercado com brindes exclusivos.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-card__icon">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3 class="feature-card__title">Grupo Exclusivo</h3>
+                        <p class="feature-card__text">Faça parte de um seleto grupo de Piscineiros Parceiros com discussões aprofundadas sobre tratamento de piscina.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MENTOR ===== -->
+        <section class="section" id="mentor">
+            <div class="container mentor__container">
+                <div class="mentor__image-wrapper animate-on-scroll">
+                    <img src="foto3.jpg" alt="Foto de Rafa Rlc" class="mentor__image">
+                </div>
+                <div class="mentor__content animate-on-scroll">
+                    <h2 class="section__title section__title--left">Conheça seu Mentor</h2>
+                    <h3 class="mentor__name">Rafa Rlc</h3>
+                    <p class="mentor__title">Piscineiro Profissional & Influenciador Digital</p>
+                    <p class="mentor__bio">
+                        Com 15 anos de experiência prática, Rafa se tornou uma referência no tratamento de piscinas em Londrina-PR. Ele transformou seu conhecimento de campo em conteúdo valioso nas redes sociais, onde já alcançou milhões de visualizações, ajudando profissionais e donos de piscinas a dominar a arte da água perfeita.
+                    </p>
+                    <div class="mentor__stats">
+                        <div class="mentor__stat">
+                            <strong>+15</strong>
+                            <span>Anos de Experiência</span>
+                        </div>
+                        <div class="mentor__stat">
+                            <strong>Milhões</strong>
+                            <span>de Visualizações</span>
+                        </div>
+                        <div class="mentor__stat">
+                            <strong>100%</strong>
+                            <span>Foco em Resultados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== PROGRAMAÇÃO (ACORDEÃO) ===== -->
+        <section class="section section--bg" id="programacao">
+            <div class="container section__container">
+                <div class="section__header animate-on-scroll">
+                    <h2 class="section__title">O que você vai dominar no evento?</h2>
+                    <p class="section__subtitle">Uma imersão completa nos pilares do tratamento de piscinas.</p>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion__item">
+                        <div class="accordion__header">
+                            <h3>1. Diagnóstico e Análise da Água</h3>
+                            <span class="accordion__icon"></span>
+                        </div>
+                        <div class="accordion__content">
+                            <p>Aprenda a "ler" a piscina. Você saberá identificar a causa raiz de problemas como água verde, turva, oleosidade e metais, usando kits de teste de forma profissional para um diagnóstico preciso.</p>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="accordion__header">
+                            <h3>2. O Arsenal Químico: Produtos e Funções</h3>
+                            <span class="accordion__icon"></span>
+                        </div>
+                        <div class="accordion__content">
+                            <p>Desvende a função de cada produto: cloro, algicida, clarificante, elevador/redutor de pH e alcalinidade. Entenda a dosagem correta e a ordem de aplicação para máxima eficiência e economia.</p>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="accordion__header">
+                            <h3>3. Rotinas de Manutenção Profissionais</h3>
+                            <span class="accordion__icon"></span>
+                        </div>
+                        <div class="accordion__content">
+                            <p>O passo a passo de uma visita de manutenção que otimiza seu tempo e entrega valor. Da aspiração à limpeza de filtros e bordas, aprenda a rotina que garante a satisfação do cliente.</p>
+                        </div>
+                    </div>
+                     <div class="accordion__item">
+                        <div class="accordion__header">
+                            <h3>4. Solução de Problemas Avançados</h3>
+                            <span class="accordion__icon"></span>
+                        </div>
+                        <div class="accordion__content">
+                            <p>Como agir em situações críticas: tratamento de choque, eliminação de algas pretas, remoção de manchas e correção de parâmetros extremos. Torne-se o especialista que resolve qualquer desafio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EVENTOS ANTERIORES ===== -->
+        <section class="section">
+            <div class="container past-event__container">
+                <div class="past-event__content animate-on-scroll">
+                    <h2 class="section__title section__title--left">Uma jornada de sucesso</h2>
+                    <p>A série <strong>Profissão Piscina</strong> já é um marco na qualificação do setor. Na nossa primeira edição, um evento de sucesso absoluto sobre aquecimento de piscinas.</p>
+                    <div class="past-event__card">
+                        <div class="past-event__tag">Episódio 1 ✅</div>
+                        <h3 class="past-event__title">Aquecimento Solar e Térmico</h3>
+                        <p class="past-event__mentors">Com os especialistas Enimar Silvério e André Carbonari.</p>
+                    </div>
+                </div>
+                <div class="past-event__images animate-on-scroll">
+                    <img src="foto1.png" alt="Foto de Enimar Silvério" class="past-event__image">
+                    <img src="foto2.png" alt="Foto de André Carbonari" class="past-event__image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__about">
+                <a href="#" class="header__logo">
+                    <img src="logo.png" alt="Logo Profissão Piscina">
+                    <span>Profissão Piscina</span>
+                </a>
+                <p>Uma iniciativa para qualificar o mercado, conectando especialistas com quem busca conhecimento prático e de qualidade.</p>
+                <div class="footer__socials">
+                    <a href="https://www.instagram.com/appiscina/" target="_blank" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <h3 class="footer__title">Navegação</h3>
+                <ul>
+                    <li><a href="#sobre">O Evento</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#mentor">Mentor</a></li>
+                    <li><a href="#programacao">Programação</a></li>
+                    <li><a href="#inscreva-se">Inscreva-se</a></li>
+                </ul>
+            </div>
+            <div class="footer__contact">
+                 <h3 class="footer__title">Contato</h3>
+                <ul>
+                    <li><a href="https://wa.me/554398590169" target="_blank">WhatsApp</a></li>
+                    <li><a href="mailto:gerencia@appiscina.com.br">gerencia@appiscina.com.br</a></li>
+                    <li>Londrina/PR</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <p>© 2025 Profissão Piscina by Appiscina. Todos os direitos reservados. Desenvolvido por Felipe Indejejczak</p>
+        </div>
+    </footer>
+
+</body>
+</html>
