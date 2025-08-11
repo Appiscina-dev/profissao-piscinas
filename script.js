@@ -1,4 +1,4 @@
-/* ===== script.js ===== */
+/* ===== script.js (Versão Corrigida sem CPF) ===== */
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ===== HEADER & MOBILE NAV ===== */
@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
             const data = {
                 nome: formData.get('nome'),
-                cpf: formData.get('cpf'),
                 cidade: formData.get('cidade'),
                 whatsapp: formData.get('whatsapp'),
                 email: formData.get('email'),
@@ -146,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.form__input.invalid').forEach(el => el.classList.remove('invalid'));
 
         // Validate text inputs
-        ['nome', 'cpf', 'cidade', 'whatsapp', 'email'].forEach(id => {
+        ['nome', 'cidade', 'whatsapp', 'email'].forEach(id => {
             const input = document.getElementById(id);
             if (!input.value.trim()) {
                 showError(id, 'Este campo é obrigatório.');
@@ -207,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
 *Evento:* ${escapeMarkdown(data.evento || 'N/A')}
 
 *Nome:* ${escapeMarkdown(data.nome || 'N/A')}
-*CPF/CNPJ:* ${escapeMarkdown(data.cpf || 'N/A')}
 *WhatsApp:* ${escapeMarkdown(data.whatsapp || 'N/A')}
 *E\\-mail:* ${escapeMarkdown(data.email || 'N/A')}
 *Cidade/UF:* ${escapeMarkdown(data.cidade || 'N/A')}
@@ -242,25 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ===== INPUT MASKS ===== */
-    const cpfInput = document.getElementById('cpf');
-    if (cpfInput) {
-        cpfInput.addEventListener('input', e => {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length <= 11) {
-                value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            } else {
-                value = value.substring(0, 14);
-                value = value.replace(/^(\d{2})(\d)/, '$1.$2');
-                value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-                value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
-                value = value.replace(/(\d{4})(\d)/, '$1-$2');
-            }
-            e.target.value = value;
-        });
-    }
-
     const whatsappInput = document.getElementById('whatsapp');
     if (whatsappInput) {
         whatsappInput.addEventListener('input', e => {
