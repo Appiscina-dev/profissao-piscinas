@@ -621,7 +621,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 3.5rem; /* MODIFICADO: Reduzido de 4rem para aproximar as logos */
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
@@ -640,7 +640,7 @@ img {
 }
 
 .logos-bar img {
-    height: 80px;
+    height: 95px; /* MODIFICADO: Aumentado de 80px para logos ligeiramente maiores */
     opacity: 0.9;
     transition: all var(--transition-speed) ease;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
