@@ -596,7 +596,7 @@ img {
 .logos-bar {
     padding: 3rem 0;
     border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(135deg, var(--primary-color-light) 0%, #A6DAF4 5%, var(--primary-color-light) 100%); /* MODIFICADO */
+    background: linear-gradient(135deg, var(--primary-color-light) 0%, var(--secondary-color) 5%, var(--primary-color-light) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -875,4 +875,4 @@ img {
 .mentor__stat strong {
     display: block;
     font-size: 2.5rem;
-  
+    
